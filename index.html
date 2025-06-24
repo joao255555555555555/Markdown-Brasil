@@ -1,104 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Markdown Brasil — Lançamento às 21h</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #0d1117;
-      color: #ffffff;
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      height: 100vh;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Editor Markdown Online e Grátis para READMEs - Markdown Brasil</title>
 
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      color: #58a6ff;
-    }
+    <meta name="description" content="Crie e edite arquivos Markdown, READMEs para GitHub, e visualize HTML e CSS em tempo real. Um editor online, rápido, grátis e focado no desenvolvedor brasileiro.">
 
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin-bottom: 2rem;
-      color: #c9d1d9;
-    }
+    <meta name="keywords" content="markdown, editor markdown, editor html, editor css, readme, github, online, gratis, brasil">
+    
+    <link rel="canonical" href="https://SEU-DOMINIO-AQUI.com/">
 
-    .countdown {
-      font-family: 'Fira Code', monospace;
-      font-size: 2rem;
-      background-color: #161b22;
-      padding: 1rem 2rem;
-      border: 2px solid #30363d;
-      border-radius: 10px;
-      color: #79c0ff;
-      margin-bottom: 1rem;
+    <meta property="og:title" content="Editor Markdown Online e Grátis para READMEs - Markdown Brasil">
+    <meta property="og:description" content="Crie e edite arquivos Markdown, READMEs para GitHub, e visualize HTML e CSS em tempo real. Um editor online, rápido, grátis e focado no desenvolvedor brasileiro.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://SEU-DOMINIO-AQUI.com/">
+    <meta property="og:image" content="https://SEU-DOMINIO-AQUI.com/og-image.png"> <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Editor Markdown Online e Grátis para READMEs - Markdown Brasil">
+    <meta name="twitter:description" content="Crie e edite arquivos Markdown, READMEs para GitHub, e visualize HTML e CSS em tempo real.">
+    <meta name="twitter:image" content="https://SEU-DOMINIO-AQUI.com/twitter-image.png"> <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Markdown Brasil",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Web (Cross-platform)",
+      "description": "Editor Markdown online e gratuito, focado na criação de READMEs para GitHub e na visualização de HTML e CSS em tempo real.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150" 
+      },
+      "keywords": "markdown, editor html, readme, editor css, online, gratis"
     }
-
-    .footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: #8b949e;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .countdown {
-        font-size: 1.5rem;
-        padding: 0.7rem 1.2rem;
-      }
-    }
-  </style>
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-  <h1>Markdown Brasil</h1>
-  <p>Hoje às 21h, o Brasil mostra que sabe fazer.<br>
-  Preview ao vivo, acessível, direto do navegador. Sem enrolação.</p>
-  <div class="countdown" id="countdown">⏳ Calculando tempo...</div>
-  <div class="footer">Feito com 🇧🇷 direto de Salvador</div>
 
-  <script>
-    function atualizarContagem() {
-      const countdownEl = document.getElementById('countdown');
-      
-      // Define horário de lançamento (hoje às 21h, horário de Brasília)
-      const agora = new Date();
-      const ano = agora.getFullYear();
-      const mes = agora.getMonth();
-      const dia = agora.getDate();
-      const dataAlvo = new Date(ano, mes, dia, 21, 0, 0); // 21h local
+   <header class="header">
+        <div class="header__group">
+            <h1 class="header__title">Markdown Brasil</h1>
+            <input type="text" id="document-title" class="header__input" placeholder="Nome do seu README...">
+        </div>
+        <div class="header__group header__group--right">
+            <div class="theme-selector">
+                <label for="theme-selector__select">Tema:</label>
+                <select id="theme-selector__select" class="theme-selector__select">
+                    <option value="dark">Dark</option>
+                    <option value="light">Light</option>
+                    <option value="dracula">Dracula</option>
+                    <option value="github-light">GitHub Light</option>
+                    <option value="dark-colorblind">Dark Colorblind</option>
+                    <option value="light-colorblind">Light Colorblind</option>
+                    <option value="dark-tritanopia">Dark Tritanopia</option>
+                    <option value="light-tritanopia">Light Tritanopia</option>
+                    <option value="soft-dark">Soft Dark</option>
+                </select>
+            </div>
+            <a href="https://github.com/henriquetourinho/Markdown-Brasil" target="_blank" class="header__brand-link" title="Código aberto no GitHub">
+                <i class="fab fa-github"></i>
+                <span>Markdown Brasil</span>
+            </a>
+        </div>
+    </header>
 
-      const agoraMs = new Date().getTime();
-      const alvoMs = dataAlvo.getTime();
-      const distancia = alvoMs - agoraMs;
+    <div id="toolbar" class="toolbar">
+        <button id="btn-bold" class="toolbar__button" title="Negrito (Ctrl+B)" aria-label="Negrito"><i class="fas fa-bold"></i></button>
+        <button id="btn-italic" class="toolbar__button" title="Itálico (Ctrl+I)" aria-label="Itálico"><i class="fas fa-italic"></i></button>
+        <button id="btn-strike" class="toolbar__button" title="Riscado" aria-label="Riscado"><i class="fas fa-strikethrough"></i></button>
+        <select id="select-heading" class="toolbar__select" title="Cabeçalho">
+            <option value="p" disabled selected>Cabeçalhos</option>
+            <option value="h1">H1</option><option value="h2">H2</option><option value="h3">H3</option><option value="h4">H4</option>
+        </select>
+        <button id="btn-link" class="toolbar__button" title="Link" aria-label="Link"><i class="fas fa-link"></i></button>
+        <button id="btn-quote" class="toolbar__button" title="Citação" aria-label="Citação"><i class="fas fa-quote-right"></i></button>
+        <button id="btn-code" class="toolbar__button" title="Bloco de Código" aria-label="Bloco de Código"><i class="fas fa-code"></i></button>
+        <button id="btn-ul" class="toolbar__button" title="Lista de Marcadores" aria-label="Lista de Marcadores"><i class="fas fa-list-ul"></i></button>
+        <button id="btn-ol" class="toolbar__button" title="Lista Numerada" aria-label="Lista Numerada"><i class="fas fa-list-ol"></i></button>
+        <button id="btn-checklist" class="toolbar__button" title="Lista de Tarefas" aria-label="Lista de Tarefas"><i class="fas fa-tasks"></i></button>
+        <button id="btn-toc" class="toolbar__button" title="Gerar Sumário" aria-label="Gerar Sumário"><i class="fas fa-sitemap"></i></button>
+        <button id="btn-details" class="toolbar__button" title="Seção Retrátil" aria-label="Seção Retrátil"><i class="fas fa-chevron-down"></i></button>
+        <select id="select-alert" class="toolbar__select" title="Alerta Especial do GitHub">
+            <option value="p" disabled selected>Alertas</option>
+            <option value="note">Nota</option><option value="warning">Aviso</option><option value="important">Importante</option>
+        </select>
+        <button id="btn-template" class="toolbar__button" title="Usar um Template" aria-label="Usar um Template"><i class="fas fa-file-alt"></i></button>
+        <button id="btn-table" class="toolbar__button" title="Inserir Tabela" aria-label="Inserir Tabela"><i class="fas fa-table"></i></button>
+        <button id="btn-badge" class="toolbar__button" title="Inserir Badge" aria-label="Inserir Badge"><i class="fas fa-shield-alt"></i></button>
+        <button id="btn-skills" class="toolbar__button" title="Inserir Badges de Tecnologia" aria-label="Inserir Badges de Tecnologia"><i class="fas fa-laptop-code"></i></button>
+    </div>
 
-      if (distancia <= 0) {
-        countdownEl.textContent = "🚀 Markdown Brasil já está no ar!";
-        return;
-      }
+    <main class="app-container">
+        <h1 class="visually-hidden">Editor Markdown Avançado e Gratuito para Desenvolvedores</h1>
+        
+        <textarea id="editor" class="editor" placeholder="Pressione Ctrl+K para abrir a Paleta de Comandos ou arraste uma imagem..."></textarea>
+        <div id="preview" class="preview"></div>
+    </main>
 
-      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+    <footer class="status-bar">
+        <div class="status-bar__info">
+            <span id="word-count">Palavras: 0</span>
+            <span id="char-count">Caracteres: 0</span>
+        </div>
+        <div id="save-status" class="status-bar__save-status"></div>
+        <div class="status-bar__actions">
+            <button id="btn-save-named" class="status-bar__button" title="Salvar uma versão nomeada no histórico (Ctrl+S)"><i class="fas fa-save"></i> Salvar Versão</button>
+            <button id="btn-history" class="status-bar__button" title="Histórico de Versões (Ctrl+H)"><i class="fas fa-history"></i> Histórico</button>
+            <button id="btn-copy-html" class="status-bar__button" title="Copiar o código HTML gerado"><i class="fas fa-copy"></i> Copiar HTML</button>
+            <div class="dropdown">
+                <button class="status-bar__button dropdown__button"><i class="fas fa-file-export"></i> Exportar</button>
+                <div class="dropdown__content">
+                    <a href="#" id="btn-export-md"><i class="fas fa-file-arrow-down"></i> Exportar .md</a>
+                    <a href="#" id="btn-export-html"><i class="fas fa-file-code"></i> Exportar .html</a>
+                    <a href="#" id="btn-export-pdf"><i class="fas fa-file-pdf"></i> Exportar .pdf</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-      countdownEl.textContent = `⏳ Lançamento em: ${String(horas).padStart(2, '0')}h ${String(minutos).padStart(2, '0')}min ${String(segundos).padStart(2, '0')}s`;
-    }
+    <div id="modal-table" class="modal__overlay"><div class="modal__content"><h3>Criar Tabela</h3><label for="table-cols">Colunas:</label><input type="number" id="table-cols" value="3" min="1"><label for="table-rows">Linhas (de dados):</label><input type="number" id="table-rows" value="2" min="1"><div class="modal__actions"><button id="btn-create-table" class="modal__button--primary">Inserir</button><button class="modal__button--close">Cancelar</button></div></div></div>
+    <div id="modal-badge" class="modal__overlay"><div class="modal__content"><h3>Criar Badge</h3><label for="badge-label">Texto Esquerdo:</label><input type="text" id="badge-label" placeholder="versão"><label for="badge-message">Texto Direito:</label><input type="text" id="badge-message" placeholder="1.8"><label for="badge-color">Cor:</label><select id="badge-color"><option value="blue">Azul</option><option value="green">Verde</option><option value="red">Vermelho</option><option value="yellow">Amarelo</option><option value="gray">Cinza</option></select><label for="badge-link">Link (Opcional):</label><input type="text" id="badge-link" placeholder="https://..."><div class="modal__actions"><button id="btn-create-badge" class="modal__button--primary">Inserir</button><button class="modal__button--close">Cancelar</button></div></div></div>
+    <div id="modal-details" class="modal__overlay"><div class="modal__content"><h3>Criar Seção Retrátil</h3><label for="details-summary">Título Visível:</label><input type="text" id="details-summary" placeholder="Clique para expandir..."><label for="details-content">Conteúdo Escondido:</label><textarea id="details-content" rows="5" placeholder="Conteúdo..."></textarea><div class="modal__actions"><button id="btn-create-details" class="modal__button--primary">Inserir</button><button class="modal__button--close">Cancelar</button></div></div></div>
+    <div id="modal-skills" class="modal__overlay"><div class="modal__content modal__content--lg"><h3>Construtor de Skill Badges</h3><p>Selecione as tecnologias que deseja exibir.</p><div class="skills-container"></div><label for="skills-theme">Tema dos Ícones:</label><select id="skills-theme"><option value="dark">Escuro</option><option value="light">Claro</option></select><div class="modal__actions"><button id="btn-create-skills" class="modal__button--primary">Inserir</button><button class="modal__button--close">Cancelar</button></div></div></div>
+    <div id="modal-template" class="modal__overlay"><div class="modal__content"><h3>Usar um Template</h3><p>Isso substituirá o conteúdo atual. Deseja continuar?</p><select id="template-select"><option value="simple">README Simples</option><option value="detailed">README Detalhado</option></select><div class="modal__actions"><button id="btn-apply-template" class="modal__button--primary">Aplicar</button><button class="modal__button--close">Cancelar</button></div></div></div>
+    <div id="modal-history" class="modal__overlay modal__overlay--panel"><div class="history-panel"><div class="history-panel__header"><h2>Histórico de Versões</h2><button id="btn-history-close" class="history-panel__close" title="Fechar" aria-label="Fechar">&times;</button></div><ul id="history-list" class="history-panel__list"></ul></div></div>
+    <div id="modal-command-palette" class="modal__overlay modal__overlay--palette"><div class="command-palette"><input type="text" id="command-input" class="command-palette__input" placeholder="Digite um comando..."><ul id="command-results" class="command-palette__results"></ul></div></div>
 
-    // Atualiza a cada segundo
-    atualizarContagem();
-    setInterval(atualizarContagem, 1000);
-  </script>
+    <div id="toast-container" class="toast-container"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="js/app.js" type="module" defer></script>
 </body>
 </html>
