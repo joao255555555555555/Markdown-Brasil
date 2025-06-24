@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Markdown Brasil — Lançamento às 21h</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d1117;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #58a6ff;
+    }
+
+    p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #c9d1d9;
+    }
+
+    .countdown {
+      font-family: 'Fira Code', monospace;
+      font-size: 2rem;
+      background-color: #161b22;
+      padding: 1rem 2rem;
+      border: 2px solid #30363d;
+      border-radius: 10px;
+      color: #79c0ff;
+      margin-bottom: 1rem;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #8b949e;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .countdown {
+        font-size: 1.5rem;
+        padding: 0.7rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Markdown Brasil</h1>
+  <p>Hoje às 21h, o Brasil mostra que sabe fazer.<br>
+  Preview ao vivo, acessível, direto do navegador. Sem enrolação.</p>
+  <div class="countdown" id="countdown">⏳ Calculando tempo...</div>
+  <div class="footer">Feito com 🇧🇷 direto de Salvador</div>
+
+  <script>
+    function atualizarContagem() {
+      const countdownEl = document.getElementById('countdown');
+      
+      // Define horário de lançamento (hoje às 21h, horário de Brasília)
+      const agora = new Date();
+      const ano = agora.getFullYear();
+      const mes = agora.getMonth();
+      const dia = agora.getDate();
+      const dataAlvo = new Date(ano, mes, dia, 21, 0, 0); // 21h local
+
+      const agoraMs = new Date().getTime();
+      const alvoMs = dataAlvo.getTime();
+      const distancia = alvoMs - agoraMs;
+
+      if (distancia <= 0) {
+        countdownEl.textContent = "🚀 Markdown Brasil já está no ar!";
+        return;
+      }
+
+      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+      countdownEl.textContent = `⏳ Lançamento em: ${String(horas).padStart(2, '0')}h ${String(minutos).padStart(2, '0')}min ${String(segundos).padStart(2, '0')}s`;
+    }
+
+    // Atualiza a cada segundo
+    atualizarContagem();
+    setInterval(atualizarContagem, 1000);
+  </script>
+</body>
+</html>
