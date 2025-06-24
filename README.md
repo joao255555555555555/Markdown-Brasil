@@ -131,6 +131,17 @@ Siga os princípios do projeto:
 
 ---
 
+## 🤝 Apoie o projeto
+
+Se o **brhttp** foi útil, ajude a manter o desenvolvimento:
+
+**Chave Pix:**
+```
+poupanca@henriquetourinho.com.br
+```
+
+---
+
 ## 📜 Licença
 
 Distribuído sob **GPL-3.0 license**. Veja o arquivo `LICENSE`.
