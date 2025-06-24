@@ -120,15 +120,6 @@ xdg-open index.html  # ou abra manualmente no navegador
 
 ---
 
-## 6. Licença
-
-Distribuído sob a licença **GNU GPLv3** —
-Você pode usar, estudar, modificar e redistribuir.
-
-Consulte o arquivo `LICENSE` para mais detalhes.
-
----
-
 ## 7. Contribuições
 
 Contribuições são bem-vindas!
