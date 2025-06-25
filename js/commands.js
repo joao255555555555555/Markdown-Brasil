@@ -1,5 +1,6 @@
-import { elements, openModal, closeModal, showToast } from './ui.js';
-import { applyTheme } from './theme.js';
+import { openModal, closeModal, showToast } from './ui.js';
+// MUDANÇA CORRIGIDA AQUI: Importa "applyUiTheme"
+import { applyUiTheme } from './theme.js';
 import { triggerSave } from './history.js';
 import { generateToc } from './misc.js';
 
@@ -7,7 +8,6 @@ const commandPalette = document.getElementById('modal-command-palette');
 const commandInput = document.getElementById('command-input');
 const commandResults = document.getElementById('command-results');
 
-// Lista de comandos disponíveis na paleta
 const commands = [
     { name: 'Inserir Tabela', icon: 'fas fa-table', action: () => openModal('table') },
     { name: 'Inserir Badge', icon: 'fas fa-shield-alt', action: () => openModal('badge') },
@@ -16,18 +16,16 @@ const commands = [
     { name: 'Gerar Sumário', icon: 'fas fa-sitemap', action: generateToc },
     { name: 'Salvar Versão Nomeada', icon: 'fas fa-save', action: () => triggerSave(true) },
     { name: 'Ver Histórico', icon: 'fas fa-history', action: () => { document.getElementById('btn-history').click() } },
-    { name: 'Mudar Tema para Light', icon: 'fas fa-sun', action: () => applyTheme('light') },
-    { name: 'Mudar Tema para Dark', icon: 'fas fa-moon', action: () => applyTheme('dark') },
-    { name: 'Mudar Tema para Dracula', icon: 'fas fa-paint-brush', action: () => applyTheme('dracula') },
+    // MUDANÇA CORRIGIDA AQUI: Usa "applyUiTheme"
+    { name: 'Mudar Tema para Light', icon: 'fas fa-sun', action: () => applyUiTheme('light') },
+    { name: 'Mudar Tema para Dark', icon: 'fas fa-moon', action: () => applyUiTheme('dark') },
+    { name: 'Mudar Tema para Dracula', icon: 'fas fa-paint-brush', action: () => applyUiTheme('dracula') },
     { name: 'Copiar HTML', icon: 'fas fa-copy', action: () => { 
-        navigator.clipboard.writeText(elements.preview.innerHTML);
+        navigator.clipboard.writeText(document.getElementById('preview').innerHTML);
         showToast('HTML copiado para a área de transferência!', 'success');
     }},
 ];
 
-/**
- * Inicializa a paleta de comandos e seus eventos.
- */
 export function initCommands() {
     if (!commandInput) return;
 
@@ -44,7 +42,6 @@ export function initCommands() {
         }
     });
 
-    // Navegação por teclado na paleta
     commandInput.addEventListener('keydown', (e) => {
         const items = commandResults.querySelectorAll('.command-palette__item');
         if (items.length === 0) return;
@@ -79,10 +76,6 @@ export function initCommands() {
     });
 }
 
-/**
- * Renderiza os resultados filtrados na paleta de comandos.
- * @param {string} query - O termo de busca do usuário.
- */
 function renderCommandResults(query) {
     const filtered = commands.filter(c => c.name.toLowerCase().includes(query.toLowerCase()));
     commandResults.innerHTML = filtered.map((c, index) => `

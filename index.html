@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Editor Markdown Online e Grátis para READMEs - Markdown Brasil</title>
-
     <meta name="description" content="Crie e edite arquivos Markdown, READMEs para GitHub, e visualize HTML e CSS em tempo real. Um editor online, rápido, grátis e focado no desenvolvedor brasileiro.">
-
     <meta name="keywords" content="markdown, editor markdown, editor html, editor css, readme, github, online, gratis, brasil">
-    
-    <link rel="canonical" href="https://SEU-DOMINIO-AQUI.com/">
-
+    <link rel="canonical" href="https://markdownbrasil.com/">
     <meta property="og:title" content="Editor Markdown Online e Grátis para READMEs - Markdown Brasil">
     <meta property="og:description" content="Crie e edite arquivos Markdown, READMEs para GitHub, e visualize HTML e CSS em tempo real. Um editor online, rápido, grátis e focado no desenvolvedor brasileiro.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://SEU-DOMINIO-AQUI.com/">
-    <meta property="og:image" content="https://SEU-DOMINIO-AQUI.com/og-image.png"> <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://markdownbrasil.com/">
+    <meta property="og:image" content="https://markdownbrasil.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Editor Markdown Online e Grátis para READMEs - Markdown Brasil">
     <meta name="twitter:description" content="Crie e edite arquivos Markdown, READMEs para GitHub, e visualize HTML e CSS em tempo real.">
-    <meta name="twitter:image" content="https://SEU-DOMINIO-AQUI.com/twitter-image.png"> <script type="application/ld+json">
+    <meta name="twitter:image" content="https://markdownbrasil.com/twitter-image.png">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
@@ -31,28 +29,29 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "BRL"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "150" 
-      },
-      "keywords": "markdown, editor html, readme, editor css, online, gratis"
+      }
     }
     </script>
     
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter&family=JetBrains+Mono&family=Lato&family=Roboto+Mono&family=Source+Code+Pro&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link id="highlight-theme" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
 </head>
 <body>
 
    <header class="header">
         <div class="header__group">
-            <h1 class="header__title">Markdown Brasil</h1>
+            <h1 class="header__title">Markdown <span>//</span> Brasil</h1>
             <input type="text" id="document-title" class="header__input" placeholder="Nome do seu README...">
         </div>
         <div class="header__group header__group--right">
@@ -68,6 +67,17 @@
                     <option value="dark-tritanopia">Dark Tritanopia</option>
                     <option value="light-tritanopia">Light Tritanopia</option>
                     <option value="soft-dark">Soft Dark</option>
+                </select>
+            </div>
+            <div class="theme-selector">
+                <label for="font-selector">Fonte:</label>
+                <select id="font-selector" class="theme-selector__select">
+                    <option value="'Inter', sans-serif">Inter</option>
+                    <option value="'Lato', sans-serif">Lato</option>
+                    <option value="'Fira Code', monospace">Fira Code</option>
+                    <option value="'Roboto Mono', monospace">Roboto Mono</option>
+                    <option value="'Source Code Pro', monospace">Source Code Pro</option>
+                    <option value="'JetBrains Mono', monospace">JetBrains Mono</option>
                 </select>
             </div>
             <a href="https://github.com/henriquetourinho/Markdown-Brasil" target="_blank" class="header__brand-link" title="Código aberto no GitHub">
@@ -86,6 +96,7 @@
             <option value="h1">H1</option><option value="h2">H2</option><option value="h3">H3</option><option value="h4">H4</option>
         </select>
         <button id="btn-link" class="toolbar__button" title="Link" aria-label="Link"><i class="fas fa-link"></i></button>
+        <button id="btn-media" class="toolbar__button" title="Inserir Mídia (Imagem, GIF, Vídeo)" aria-label="Inserir Mídia"><i class="fas fa-photo-video"></i></button>
         <button id="btn-quote" class="toolbar__button" title="Citação" aria-label="Citação"><i class="fas fa-quote-right"></i></button>
         <button id="btn-code" class="toolbar__button" title="Bloco de Código" aria-label="Bloco de Código"><i class="fas fa-code"></i></button>
         <button id="btn-ul" class="toolbar__button" title="Lista de Marcadores" aria-label="Lista de Marcadores"><i class="fas fa-list-ul"></i></button>
@@ -97,6 +108,17 @@
             <option value="p" disabled selected>Alertas</option>
             <option value="note">Nota</option><option value="warning">Aviso</option><option value="important">Importante</option>
         </select>
+        <div class="theme-selector">
+            <label for="highlight-theme-selector" class="toolbar__label">Código:</label>
+            <select id="highlight-theme-selector" class="toolbar__select">
+                <option value="github-dark">GitHub Dark</option>
+                <option value="monokai">Monokai</option>
+                <option value="solarized-light">Solarized Light</option>
+                <option value="nord">Nord</option>
+                <option value="atom-one-dark">Atom One Dark</option>
+                <option value="tokyo-night-dark">Tokyo Night</option>
+            </select>
+        </div>
         <button id="btn-template" class="toolbar__button" title="Usar um Template" aria-label="Usar um Template"><i class="fas fa-file-alt"></i></button>
         <button id="btn-table" class="toolbar__button" title="Inserir Tabela" aria-label="Inserir Tabela"><i class="fas fa-table"></i></button>
         <button id="btn-badge" class="toolbar__button" title="Inserir Badge" aria-label="Inserir Badge"><i class="fas fa-shield-alt"></i></button>
@@ -117,6 +139,9 @@
         </div>
         <div id="save-status" class="status-bar__save-status"></div>
         <div class="status-bar__actions">
+            <button id="btn-focus-mode" class="status-bar__button" title="Modo Foco (Esc para sair)">
+                <i class="fas fa-expand-arrows-alt"></i>
+            </button>
             <button id="btn-save-named" class="status-bar__button" title="Salvar uma versão nomeada no histórico (Ctrl+S)"><i class="fas fa-save"></i> Salvar Versão</button>
             <button id="btn-history" class="status-bar__button" title="Histórico de Versões (Ctrl+H)"><i class="fas fa-history"></i> Histórico</button>
             <button id="btn-copy-html" class="status-bar__button" title="Copiar o código HTML gerado"><i class="fas fa-copy"></i> Copiar HTML</button>

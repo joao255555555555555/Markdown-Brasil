@@ -1,15 +1,36 @@
-import { elements, updateSaveStatus } from './ui.js';
+import { elements, updateSaveStatus, showToast } from './ui.js';
 
 let lastContent = '';
 let saveTimeout;
 
-/**
- * Inicializa a barra de ferramentas e seus eventos.
- */
+function handleMediaInsert() {
+    const url = prompt("Cole a URL do Vídeo (YouTube), GIF ou Imagem:");
+    if (!url) return;
+
+    let embedCode = '';
+
+    const youtubeRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/;
+    const youtubeMatch = url.match(youtubeRegex);
+
+    if (youtubeMatch && youtubeMatch[1]) {
+        const videoId = youtubeMatch[1];
+        embedCode = `\n<iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>\n`;
+    } 
+    else if (/\.(gif|jpe?g|png|webp|svg)$/i.test(url)) {
+        embedCode = `\n![Mídia](${url})\n`;
+    } 
+    else {
+        showToast("Formato de URL não reconhecido. Use links do YouTube ou links diretos para imagens/GIFs.", "error");
+        return;
+    }
+
+    insertTextAtCursor(embedCode);
+}
+
+
 export function initToolbar() {
     if (!elements.toolbar) return;
 
-    // Listener principal para os botões da toolbar
     elements.toolbar.addEventListener('click', (e) => {
         const button = e.target.closest('button');
         if (!button || !button.id) return;
@@ -22,6 +43,7 @@ export function initToolbar() {
                 const url = prompt('Digite a URL do link:', 'https://');
                 if (url) applyMarkdown('[', `](${url})`);
             },
+            'btn-media': handleMediaInsert,
             'btn-quote': () => applyMarkdownToLine('> '),
             'btn-code': () => {
                 const lang = prompt('Qual a linguagem do código? (ex: js, python)', '');
@@ -36,7 +58,6 @@ export function initToolbar() {
         }
     });
 
-    // Listeners para os menus <select>
     const selectHeading = document.getElementById('select-heading');
     if (selectHeading) {
         selectHeading.addEventListener('change', (e) => {
@@ -44,7 +65,7 @@ export function initToolbar() {
             if (!level || level === 'p') return;
             const prefix = '#'.repeat(parseInt(level.replace('h', ''))) + ' ';
             applyMarkdownToLine(prefix);
-            e.target.value = 'p'; // Reseta o dropdown
+            e.target.value = 'p'; 
         });
     }
 
@@ -54,21 +75,25 @@ export function initToolbar() {
             const type = e.target.value;
             if (!type || type === 'p') return;
             applyMarkdown(`> [!${type.toUpperCase()}]\n> `, '');
-            e.target.value = 'p'; // Reseta o dropdown
+            e.target.value = 'p';
         });
     }
 }
 
 
-/**
- * Inicializa o editor e seus eventos.
- */
 export function initEditor() {
     if (!elements.editor) return;
 
     marked.setOptions({
         breaks: true,
         gfm: true,
+        highlight: function(code, lang) {
+            if (window.hljs) {
+                const language = window.hljs.getLanguage(lang) ? lang : 'plaintext';
+                return window.hljs.highlight(code, { language }).value;
+            }
+            return code;
+        }
     });
 
     elements.editor.addEventListener('input', handleEditorInput);
@@ -93,6 +118,12 @@ function handleEditorInput() {
 export function updatePreview() {
     if (elements.preview && elements.editor) {
         elements.preview.innerHTML = marked.parse(elements.editor.value);
+        
+        // --- MUDANÇA DA CORREÇÃO AQUI ---
+        // Avisa ao highlight.js para procurar e colorir os novos blocos de código no preview
+        elements.preview.querySelectorAll('pre code').forEach((block) => {
+            window.hljs.highlightElement(block);
+        });
     }
 }
 
